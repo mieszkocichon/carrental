@@ -6,7 +6,7 @@ Dodano **ELK** i wysyłanie logów JSON z aplikacji Spring do Logstash (TCP :500
 docker compose -p car_rental_obs up -d
 
 ## Uruchom aplikacje
-mvn -q -pl inventory-worker spring-boot:run
+mvn -q -pl inventory-worker spring-boot:run  
 mvn -q -pl booking-api spring-boot:run
 
 ## Kibana
