@@ -51,11 +51,19 @@ services:
   logstash:
     image: docker.elastic.co/logstash/logstash:8.13.4
     ports:
-      - "5000:5000"   # TCP input for Logback -> Logstash
+      - "5000:5000"
     volumes:
       - ./elk/logstash/pipeline/:/usr/share/logstash/pipeline/
     depends_on:
       - elasticsearch
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: car_rental_redis
+    command: ["redis-server","--appendonly","yes"]
+    ports:
+      - "6379:6379"
     restart: unless-stopped
 
 volumes:

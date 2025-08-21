@@ -11,3 +11,7 @@ spring:
         max.poll.records: 1000
         fetch.max.bytes: 52428800
         max.partition.fetch.bytes: 52428800
+  data:
+    redis:
+      host: localhost
+      port: 6379

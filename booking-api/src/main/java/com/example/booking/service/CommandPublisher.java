@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class CommandPublisher {
   private final KafkaTemplate<String, String> kafkaTemplate;
+
   public void publish(String key, String payload) {
     kafkaTemplate.send("reservations.commands", key, payload);
   }
